@@ -1,0 +1,55 @@
+﻿@model Lab3.Models.Task
+
+@{
+    ViewData["Title"] = "Editare sarcină";
+}
+
+<h2>Creare sarcină nouă</h2>
+
+<form asp-action="Update" method="post">
+    <input type="hidden" asp-for="@Model.id" />
+    <div>
+        <label>Titlu:</label>
+        <input type="text" asp-for="@Model.title" placeholder="Titlu" />
+    </div>
+
+    <div>
+        <label for="description">Descriere:</label>
+        <input type="text" asp-for="@Model.description" placeholder="Descriere" />
+    </div>
+
+    <div>
+        <label for="category">Categorie:</label>
+        <select asp-for="category.id">
+            <option value="">Selectați o categorie</option>
+            @foreach (var category in ViewBag.categories)
+            {
+                if (category.id == Model.category?.id){
+                    <option value="@category.id" selected>@category.name</option>
+                }
+                else
+                {
+                    <option value="@category.id">@category.name</option>
+                }
+            }
+        </select>
+    </div>
+    <div>
+        <label>Etichete:</label>
+        @foreach (var tag in ViewBag.tags)
+        {
+            <div>
+                @if (Model.tags.FirstOrDefault(t=>t.id == tag.id) != null) {
+                    <input type="checkbox" name="tagIds" value="@tag.id" id="@tag.id" checked/>
+                }
+                else
+                {
+                    <input type="checkbox" name="tagIds" value="@tag.id" id="@tag.id"/>
+                }
+                <label for="@tag.id">@tag.name</label>
+            </div>
+        }
+    </div>
+
+    <button type="submit">Editează</button>
+</form>
