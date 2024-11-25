@@ -17,6 +17,11 @@ namespace Framework_Lab2.Controllers
             var tasklist = context.tasks.Include(t => t.category).Include(t => t.tags).ToList();
             return View(tasklist);
         }
+        public IActionResult Show(int id)
+        {
+            var tasklist = context.tasks.Where(t => t.id == id).Include(t => t.category).Include(t => t.tags).FirstOrDefault();
+            return View(tasklist);
+        }
 
         public IActionResult Create()
         {

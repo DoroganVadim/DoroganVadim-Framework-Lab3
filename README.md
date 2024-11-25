@@ -13,7 +13,7 @@ Veți adăuga funcționalitatea de lucru cu baza de date, veți crea modele și 
 SGBD utilizat: SQL Server.
 
 2. Crearea bazei de date: Creați o nouă bază de date pentru aplicația dvs. todo_app.\
-[image](./screenshots/1.2.png)
+[image1](./screenshots/1.2.png)
 
 3. Configurați variabilele de mediu în fișierul .env pentru a vă conecta la baza de date.\
 [image](./screenshots/1.3.png)
@@ -94,3 +94,22 @@ SGBD utilizat: SQL Server.
 [image](./screenshots/5.5.png)
 
 ## Sarcina Nr. 6. Lucrul cu controlere și vizualizări
+1. Deschideți controlerul TaskController
+2. Actualizați metoda index pentru a obține lista sarcinilor din baza de date.\
+[image](./screenshots/6.2.png)
+3. Actualizați metoda show pentru a afișa o sarcină individuală.\
+[image](./screenshots/6.3.png)
+4. În metodele index și show, folosiți metoda with (Eager Loading) pentru a încărca modelele asociate.
+5. Actualizați vizualizările corespunzătoare pentru a afișa lista de sarcini și o sarcină individuală.\
+Index.chhtml\
+[image](./screenshots/6.5.1.png)\
+Show.chhtml\
+[image](./screenshots/6.5.2.png)
+6. Actualizați metoda create pentru a afișa formularul de creare a unei sarcini și metoda store pentru a salva o sarcină nouă în baza de date.\
+[image](./screenshots/6.6.1.png)\
+[image](./screenshots/6.6.2.png)
+7. Actualizați metoda edit pentru a afișa formularul de editare a unei sarcini și metoda update pentru a salva modificările în baza de date.\
+[image](./screenshots/6.7.1.png)\
+[image](./screenshots/6.7.2.png)
+8. Actualizați metoda destroy pentru a șterge o sarcină din baza de date.\
+[image](./screenshots/6.8.png)
